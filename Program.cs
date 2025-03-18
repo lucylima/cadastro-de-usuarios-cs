@@ -10,16 +10,16 @@ namespace CadastroDePessoas
         static void Menu()
         {
             Console.Clear();
-            Console.WriteLine("------------------------------------------------------");
-            Console.WriteLine("Olá, seja bem-vindo ao progrma de cadastro de usuários");
-            Console.WriteLine("Digite uma opção:");
-            Console.WriteLine("1 - Cadastrar novo usuário");
-            Console.WriteLine("2 - Pesquisar um usuário");
-            Console.WriteLine("3 - Listar todos os usuários");
-            Console.WriteLine("4 - Sair do programa.");
-            Console.Write("\n>>> ");
+            Console.WriteLine("+------------------------------------------------------+");
+            Console.WriteLine("| Olá, seja bem-vindo ao progrma de cadastro de usuários");
+            Console.WriteLine("| Digite uma opção:");
+            Console.WriteLine("| 1 - Cadastrar novo usuário");
+            Console.WriteLine("| 2 - Pesquisar um usuário");
+            Console.WriteLine("| 3 - Listar todos os usuários");
+            Console.WriteLine("| 4 - Sair do programa.");
+            Console.Write("\n| >>> ");
             menuOption = Console.ReadLine();
-            Console.WriteLine("------------------------------------------------------");
+            Console.WriteLine("+------------------------------------------------------+");
 
             switch (menuOption)
             {
@@ -40,7 +40,7 @@ namespace CadastroDePessoas
                     break;
 
                 default:
-                    Console.WriteLine("\nOps! digite um número válido");
+                    Console.WriteLine("\nOps! digite um número válido\n");
                     Menu();
                     break;
             }
