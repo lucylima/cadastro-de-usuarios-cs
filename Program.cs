@@ -1,12 +1,16 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Xml.XPath;
 
 namespace CadastroDePessoas
 {
     class Program
     {
+        // lista de dados para armazenamento dos usuários
         static List<User> database = new List<User>();
+        // variável global para mudar de menu durante o programa
         public static string menuOption;
+        // função de menu para navegar dentro do programa
         static void Menu()
         {
             Console.Clear();
@@ -45,6 +49,7 @@ namespace CadastroDePessoas
                     break;
             }
         }
+        // função (método) para a criação de um usuário no banco de dados
 
         static void CreateUser()
         {
@@ -76,6 +81,7 @@ namespace CadastroDePessoas
             database.Add(newUser);
             Menu();
         }
+        // função para a leitura de todos os dados no banco de dados mockado (lista)
 
         static void ReadUsers()
         {
@@ -123,6 +129,7 @@ namespace CadastroDePessoas
                     break;
             }
         }
+        // Função para pesquisar usuários no banco de dados mockado
         static void SearchUser()
         {
             Console.Clear();
@@ -183,6 +190,7 @@ namespace CadastroDePessoas
                     break;
             }
         }
+        // início do programa
         static void Main()
         {
             Menu();
