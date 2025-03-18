@@ -89,7 +89,7 @@ namespace CadastroDePessoas
             }
 
             Console.WriteLine("+----------------------+");
-            Console.Write("\n| Deseja voltar para o menu?");
+            Console.WriteLine("| Deseja voltar para o menu?");
             Console.WriteLine("| 1 - Voltar para o menu");
             Console.WriteLine("| 2 - Pesquisar um usuário específico");
             Console.Write("\n| >>> ");
