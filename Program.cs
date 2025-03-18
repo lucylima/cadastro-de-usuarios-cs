@@ -57,20 +57,20 @@ namespace CadastroDePessoas
             Console.Write("| Nome completo: ");
             name = Console.ReadLine();
             if (name == "") { CreateUser(); }
-            
+
             Console.Write("| Email: ");
             email = Console.ReadLine();
             if (email == "") { CreateUser(); }
-            
+
             Console.Write("| Idade: ");
             bool ageParseSucess;
             ageParseSucess = int.TryParse(Console.ReadLine(), out age);
-            
+
             if (!ageParseSucess)
             {
                 CreateUser();
             }
-            
+
             User newUser = new User(name, email, age);
 
             database.Add(newUser);
@@ -136,16 +136,25 @@ namespace CadastroDePessoas
             Console.WriteLine("| Resultados encontrados: |");
             Console.WriteLine("+-------------------------+");
             var result = database.FindAll(user => user.name == search);
+            int resultLength = result.Count();
 
-            foreach (var person in result)
+            if (resultLength == 0)
             {
-                Console.WriteLine("+-------------------------+");
-                Console.WriteLine($"| Nome:  {person.name}    ");
-                Console.WriteLine($"| Email: {person.email}   ");
-                Console.WriteLine($"| Idade: {person.age}     ");
-                Console.WriteLine("+-------------------------+");
-                Console.WriteLine("");
+                Console.WriteLine("| Sem resultados para a pesquisa.");
             }
+            else
+            {
+                foreach (var person in result)
+                {
+                    Console.WriteLine("+-------------------------+");
+                    Console.WriteLine($"| Nome:  {person.name}    ");
+                    Console.WriteLine($"| Email: {person.email}   ");
+                    Console.WriteLine($"| Idade: {person.age}     ");
+                    Console.WriteLine("+-------------------------+");
+                    Console.WriteLine("");
+                }
+            }
+
             Console.WriteLine("+-------------------------+");
             Console.Write("| Deseja voltar para o menu?");
             Console.WriteLine("\n| 1 - Voltar para o menu");
