@@ -56,18 +56,13 @@ namespace CadastroDePessoas
             Console.WriteLine("| Digite seus dados");
             Console.Write("| Nome completo: ");
             name = Console.ReadLine();
+            if(name == "") { CreateUser(); }
             Console.Write("| Email: ");
             email = Console.ReadLine();
+            if(email == "") { CreateUser(); }
             Console.Write("| Idade: ");
             age = Convert.ToInt32(Console.ReadLine());
             User newUser = new User(name, email, age);
-            Console.WriteLine("+------------------------------------------------------");
-            Console.WriteLine("| Seus dados: ");
-            Console.WriteLine("+-------------------------+");
-            Console.WriteLine($"| Nome:  {newUser.name}   ");
-            Console.WriteLine($"| Email: {newUser.email}  ");
-            Console.WriteLine($"| Idade: {newUser.age}    ");
-            Console.WriteLine("+-------------------------+");
 
             database.Add(newUser);
             Menu();
@@ -79,20 +74,24 @@ namespace CadastroDePessoas
             Console.WriteLine("+----------------------+");
             Console.WriteLine("|   Todos os usuários  |");
             Console.WriteLine("+----------------------+");
-            Console.WriteLine("+------+-------+-------+");
-            Console.WriteLine("| Nome | Email | Idade |");
-            Console.WriteLine("+------+-------+-------+");
+            Console.WriteLine("");
 
             foreach (var person in database)
             {
-                Console.WriteLine($"| {person.name} | {person.email} | {person.age}");
+                Console.WriteLine("+-------------------------+");
+                Console.WriteLine($"| Nome:  {person.name}    ");
+                Console.WriteLine($"| Email: {person.email}   ");
+                Console.WriteLine($"| Idade: {person.age}     ");
+                Console.WriteLine("+-------------------------+");
+                Console.WriteLine("");
             }
 
             Console.WriteLine("+----------------------+");
             Console.WriteLine("| Deseja voltar para o menu?");
             Console.WriteLine("| 1 - Voltar para o menu");
             Console.WriteLine("| 2 - Pesquisar um usuário específico");
-            Console.Write("\n| >>> ");
+            Console.WriteLine("| 3 - Sair do programa");
+            Console.Write("| >>> ");
             menuOption = Console.ReadLine();
             Console.WriteLine("+----------------------+");
 
