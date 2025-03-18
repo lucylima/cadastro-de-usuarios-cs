@@ -19,6 +19,7 @@ namespace CadastroDePessoas
             Console.WriteLine("4 - Sair do programa.");
             Console.Write("\n>>> ");
             menuOption = Console.ReadLine();
+            Console.WriteLine("------------------------------------------------------");
 
             switch (menuOption)
             {
@@ -40,7 +41,7 @@ namespace CadastroDePessoas
 
                 default:
                     Console.WriteLine("\nOps! digite um número válido");
-                    Main();
+                    Menu();
                     break;
             }
         }
