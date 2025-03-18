@@ -56,12 +56,21 @@ namespace CadastroDePessoas
             Console.WriteLine("| Digite seus dados");
             Console.Write("| Nome completo: ");
             name = Console.ReadLine();
-            if(name == "") { CreateUser(); }
+            if (name == "") { CreateUser(); }
+            
             Console.Write("| Email: ");
             email = Console.ReadLine();
-            if(email == "") { CreateUser(); }
+            if (email == "") { CreateUser(); }
+            
             Console.Write("| Idade: ");
-            age = Convert.ToInt32(Console.ReadLine());
+            bool ageParseSucess;
+            ageParseSucess = int.TryParse(Console.ReadLine(), out age);
+            
+            if (!ageParseSucess)
+            {
+                CreateUser();
+            }
+            
             User newUser = new User(name, email, age);
 
             database.Add(newUser);
