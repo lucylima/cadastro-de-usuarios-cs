@@ -52,19 +52,23 @@ namespace CadastroDePessoas
             string name;
             string email;
             int age;
-            Console.WriteLine("------------------------------------------------------");
-            Console.WriteLine("Digite seus dados");
-            Console.Write("\nNome completo: ");
+            Console.WriteLine("+------------------------------------------------------");
+            Console.WriteLine("| Digite seus dados");
+            Console.Write("\n| Nome completo: ");
             name = Console.ReadLine();
-            Console.Write("\nEmail: ");
+            Console.Write("\n| Email: ");
             email = Console.ReadLine();
-            Console.Write("\nIdade: ");
+            Console.Write("\n| Idade: ");
             age = Convert.ToInt32(Console.ReadLine());
             User newUser = new User(name, email, age);
-            Console.WriteLine("------------------------------------------------------");
-            Console.WriteLine("Seus dados: ");
-            Console.WriteLine("Nome   -   Email   -   Idade");
-            Console.WriteLine(newUser.name + " | " + newUser.email + " | " + newUser.age);
+            Console.WriteLine("+------------------------------------------------------");
+            Console.WriteLine("| Seus dados: ");
+            Console.WriteLine("+-------------------------+");
+            Console.WriteLine($"| Nome:  {newUser.name}   ");
+            Console.WriteLine($"| Email: {newUser.email}  ");
+            Console.WriteLine($"| Idade: {newUser.age}    ");
+            Console.WriteLine("+-------------------------+");
+
             database.Add(newUser);
             Menu();
         }
@@ -85,11 +89,12 @@ namespace CadastroDePessoas
             }
 
             Console.WriteLine("+----------------------+");
-            Console.Write("\nDeseja voltar para o menu?");
-            Console.WriteLine("1 - Voltar para o menu");
-            Console.WriteLine("2 - Pesquisar um usuário específico");
-            Console.Write("\n>>> ");
+            Console.Write("\n| Deseja voltar para o menu?");
+            Console.WriteLine("| 1 - Voltar para o menu");
+            Console.WriteLine("| 2 - Pesquisar um usuário específico");
+            Console.Write("\n| >>> ");
             menuOption = Console.ReadLine();
+            Console.WriteLine("+----------------------+");
 
             switch (menuOption)
             {
@@ -110,8 +115,10 @@ namespace CadastroDePessoas
         {
             Console.Clear();
             string search = "";
-            Console.WriteLine("digite um nome");
-            Console.Write("\n>>>");
+            Console.WriteLine("+-------------------------+");
+            Console.WriteLine("| Digite um nome:");
+            Console.Write("\n| >>>");
+            Console.WriteLine("+-------------------------+");
             search = Console.ReadLine();
             Console.WriteLine("+-------------------------+");
             Console.WriteLine("| Resultados encontrados: |");
@@ -125,12 +132,14 @@ namespace CadastroDePessoas
                 Console.WriteLine($"| Email: {person.email}   ");
                 Console.WriteLine($"| Idade: {person.age}     ");
                 Console.WriteLine("+-------------------------+");
+                Console.WriteLine("");
             }
-            Console.WriteLine("");
-            Console.Write("\nDeseja voltar para o menu?");
-            Console.WriteLine("1 - Voltar para o menu");
-            Console.WriteLine("2 - Pesquisar outro usuário");
-            Console.Write("\n>>> ");
+            Console.WriteLine("+-------------------------+");
+            Console.Write("\n| Deseja voltar para o menu?");
+            Console.WriteLine("| 1 - Voltar para o menu");
+            Console.WriteLine("| 2 - Pesquisar outro usuário");
+            Console.Write("\n| >>> ");
+            Console.WriteLine("+-------------------------+");
             menuOption = Console.ReadLine();
 
             switch (menuOption)
