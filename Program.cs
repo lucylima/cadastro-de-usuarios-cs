@@ -54,11 +54,11 @@ namespace CadastroDePessoas
             int age;
             Console.WriteLine("+------------------------------------------------------");
             Console.WriteLine("| Digite seus dados");
-            Console.Write("\n| Nome completo: ");
+            Console.Write("| Nome completo: ");
             name = Console.ReadLine();
-            Console.Write("\n| Email: ");
+            Console.Write("| Email: ");
             email = Console.ReadLine();
-            Console.Write("\n| Idade: ");
+            Console.Write("| Idade: ");
             age = Convert.ToInt32(Console.ReadLine());
             User newUser = new User(name, email, age);
             Console.WriteLine("+------------------------------------------------------");
@@ -106,6 +106,10 @@ namespace CadastroDePessoas
                     SearchUser();
                     break;
 
+                case "3":
+                    Console.WriteLine("Até mais! :)");
+                    break;
+
                 default:
                     Menu();
                     break;
@@ -117,13 +121,13 @@ namespace CadastroDePessoas
             string search = "";
             Console.WriteLine("+-------------------------+");
             Console.WriteLine("| Digite um nome:");
-            Console.Write("\n| >>>");
-            Console.WriteLine("+-------------------------+");
+            Console.Write("| >>> ");
             search = Console.ReadLine();
+            Console.WriteLine("+-------------------------+\n");
             Console.WriteLine("+-------------------------+");
             Console.WriteLine("| Resultados encontrados: |");
             Console.WriteLine("+-------------------------+");
-            var result = database.FindAll(user => user.name.ToLower() == search.ToLower());
+            var result = database.FindAll(user => user.name == search);
 
             foreach (var person in result)
             {
@@ -135,12 +139,13 @@ namespace CadastroDePessoas
                 Console.WriteLine("");
             }
             Console.WriteLine("+-------------------------+");
-            Console.Write("\n| Deseja voltar para o menu?");
-            Console.WriteLine("| 1 - Voltar para o menu");
+            Console.Write("| Deseja voltar para o menu?");
+            Console.WriteLine("\n| 1 - Voltar para o menu");
             Console.WriteLine("| 2 - Pesquisar outro usuário");
-            Console.Write("\n| >>> ");
-            Console.WriteLine("+-------------------------+");
+            Console.WriteLine("| 3 - Sair do programa");
+            Console.Write("| >>> ");
             menuOption = Console.ReadLine();
+            Console.WriteLine("\n+-------------------------+");
 
             switch (menuOption)
             {
@@ -150,6 +155,10 @@ namespace CadastroDePessoas
 
                 case "2":
                     SearchUser();
+                    break;
+
+                case "3":
+                    Console.WriteLine("Até mais! :)");
                     break;
 
                 default:
